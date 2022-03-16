@@ -35,7 +35,7 @@ function App() {
   const [bidding, setBidding] = useState([]);
   const [errorMessage, setErrorMessage] = useState(null);
   const [sort, setSort] = useState("ASE");
-  const [page, setPage] = useState(0);
+  const [page, setPage] = useState(1);
   const [count, setCount] = useState(0);
 
   const viewProd = () => {
@@ -43,7 +43,7 @@ function App() {
       setLoading(true);
       setBidding([]);
       const query = `?sort=${sort}&page=${page - 1}`
-      fetch("http://personal.dev.com:6060/e-auction/api/v1/seller/show-bids/" + productId + query, {
+      fetch("http://localhost:6060/e-auction/api/v1/seller/show-bids/" + productId + query, {
         method: 'GET',
         credentials: 'include',
         withCredentials: true,
